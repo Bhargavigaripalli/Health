@@ -1,0 +1,292 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Diagnostic 404 - Stackly Healthcare</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ==========================================================================
+       GLOBAL INITIALIZATION & VARIABLE ROOT
+       ========================================================================== */
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      background: 
+        linear-gradient(135deg, rgba(11, 22, 44, 0.96), rgba(15, 32, 67, 0.94)),
+        url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* ==========================================================================
+       LAYOUT CONTAINER & OVERLAY CARD
+       ========================================================================== */
+    .error-container{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .error-card{
+      width: 100%;
+      max-width: 540px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      border-radius: 32px;
+      padding: 50px 40px;
+      text-align: center;
+      color: #ffffff;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ==========================================================================
+       CARD SUB-COMPONENTS (HEALTHCARE ELEMENTS)
+       ========================================================================== */
+    .error-icon{
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ef4444, #f43f5e);
+      font-size: 36px;
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+      animation: pulseGlow 2s infinite;
+    }
+
+    .error-card h1{
+      font-size: 110px;
+      font-weight: 800;
+      line-height: 0.95;
+      margin-bottom: 10px;
+      color: #38bdf8;
+      letter-spacing: -2px;
+    }
+
+    .error-card h2{
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #f8fafc;
+    }
+
+    .error-card p{
+      font-size: 15px;
+      line-height: 1.7;
+      color: #94a3b8;
+      margin-bottom: 30px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Modern Medical Data Feed Component replacing old cartoon image */
+    .medical-status-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 35px;
+      text-align: left;
+    }
+
+    .status-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 8px;
+      font-family: monospace;
+    }
+
+    .status-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .status-label {
+      color: #64748b;
+    }
+
+    .status-value {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .status-value.alert {
+      color: #f43f5e;
+    }
+
+    /* ==========================================================================
+       SEMANTIC LINK BUTTON
+       ========================================================================== */
+    .back-home-btn{
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      padding: 15px 38px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.35);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      width: auto;
+    }
+
+    .back-home-btn:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(14, 165, 233, 0.55);
+    }
+
+    /* ==========================================================================
+       ANIMATIONS
+       ========================================================================== */
+    @keyframes fadeInUp{
+      from{
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulseGlow{
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 10px 40px rgba(239, 68, 68, 0.7);
+      }
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS (TABLET & PHONES)
+       ========================================================================== */
+    @media(max-width: 768px){
+      .error-card{
+        padding: 40px 30px;
+        border-radius: 28px;
+      }
+      .error-card h1{
+        font-size: 95px;
+      }
+      .error-card h2{
+        font-size: 24px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      body {
+        padding: 16px;
+      }
+      .error-card {
+        padding: 35px 20px;
+        border-radius: 24px;
+      }
+      .error-icon {
+        width: 74px;
+        height: 74px;
+        font-size: 28px;
+        margin-bottom: 18px;
+      }
+      .error-card h1 {
+        font-size: 75px;
+        letter-spacing: -1px;
+      }
+      .error-card h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .error-card p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+      .medical-status-box {
+        padding: 15px;
+        margin-bottom: 25px;
+      }
+      .back-home-btn {
+        display: block;
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       ERROR PAGE MAIN
+  ========================== -->
+  <div class="error-container">
+    <div class="error-card">
+      
+      <!-- CLINICAL WARNING HEART-PULSE ICON -->
+      <div class="error-icon">
+        <i class="fa-solid fa-heart-pulse"></i>
+      </div>
+
+      <!-- ERROR SPECIFICS -->
+      <h1>404</h1>
+      <h2>Medical Record Missing</h2>
+      <p>
+        The requested healthcare directory path or clinical data page could not be located in the central system telemetry database.
+      </p>
+
+      <!-- SIMULATED CLINICAL HEALTH TELEMETRY METRICS FEED -->
+      <div class="medical-status-box">
+        <div class="status-line">
+          <span class="status-label">> SYSTEM HEARTBEAT:</span>
+          <span class="status-value">98 BPM [STABLE]</span>
+        </div>
+        <div class="status-line">
+          <span class="status-label">> PATIENT DATABASE:</span>
+          <span class="status-value">CONNECTED</span>
+        </div>
+        <div class="status-line">
+          <span class="status-label">> DIRECTORY STATUS:</span>
+          <span class="status-value alert">ERR_404_NOT_FOUND</span>
+        </div>
+      </div>
+
+      <!-- LINK ACTION -->
+      <a href="index.html" class="back-home-btn">Return to Clinical Home</a>
+
+    </div>
+  </div>
+
+</body>
+</html>
